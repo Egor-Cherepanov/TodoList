@@ -25,12 +25,6 @@ export function App() {
             {todos.map((todo) => (
               <li key={todo.id} className={styles.todoItem}>
                 <span className={styles.todoText}>{todo.title}</span>
-                {/* <button
-                className="delete-button"
-                onClick={() => deleteTodo(index)}
-              >
-                Удалить
-              </button> */}
               </li>
             ))}
           </ul>
