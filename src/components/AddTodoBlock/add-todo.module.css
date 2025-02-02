@@ -1,0 +1,32 @@
+.todoForm {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.todoInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.addButton {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.inputError {
+  color: red;
+}
+
+.addButton:hover {
+  background-color: #218838;
+}
