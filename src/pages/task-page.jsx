@@ -1,48 +1,38 @@
-import { useState } from "react"
-import { useParams, useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useParams} from "react-router-dom"
 import styles from "./App.module.css"
-import { UpdateTodo } from "../components/update-todo/update-todo"
-// import { useRequestGetTodos } from "../hooks/index"
+import TodoItem from "../components/TodoItem"
+import useGetTodoById from "../hooks/useGetTodoById"
+import Loader from "../components/Loader"
+import RemoveTodo from "../components/RemoveTodo"
 
 export const TaskPage = () => {
-  const { id } = useParams()
-  const location = useLocation()
-  // const { title } = location.state
-  console.log(location)
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  const [isUpdating, setIsUpdating] = useState(false)
-  const [inputValue, setInputValue] = useState("")
+  const { id } = useParams();
+  const { todo, isLoading } = useGetTodoById(id);
+
+  if (isLoading) {
+    return <Loader />
+  }
 
   return (
     <div className={styles.taskPage}>
       <button onClick={() => navigate(-1)}>❮ Назад</button>
 
-      {isUpdating ? <UpdateTodo id={id} /> : <></>}
+      {todo && <TodoItem todo={todo}/>}
 
-      <button
+      <RemoveTodo id={id} />
+
+      {/* {isUpdating ? <UpdateTodo id={id} /> : <></>} */}
+
+      {/* <button
         onClick={startUpdateTodo}
         data-id={todo.id}
         className={styles.updateButton}
         data-text={todo.title}
       >
         Редактировать задачу
-      </button>
-      <button
-        onClick={() => {
-          const id = todo.id
-          requestDeleteTodo({
-            id,
-            setRefreshProducts,
-            refreshProducts,
-            setAlfabetTodosUpdated,
-          })
-        }}
-        data-id={todo.id}
-        className={styles.deleteButton}
-      >
-        Удалить
-      </button>
+      </button> */}
     </div>
   )
 }

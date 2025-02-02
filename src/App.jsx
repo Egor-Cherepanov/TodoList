@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import styles from "./App.module.css"
-// import { use } from 'react'
 
 export function App() {
   const [todos, setTodoos] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+/
   useEffect(() => {
     setIsLoading(true)
     fetch("https://jsonplaceholder.typicode.com/todos")
@@ -14,6 +14,7 @@ export function App() {
       })
       .finally(() => setIsLoading(false))
   }, [])
+
   return (
     <div className={styles.todoApp}>
       <h1>Список дел</h1>

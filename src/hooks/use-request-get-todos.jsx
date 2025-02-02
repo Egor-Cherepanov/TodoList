@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react"
 
-export const useRequestGetTodos = ({ refreshProducts }) => {
+export const useRequestGetTodos = () => {
   const [todos, setTodos] = useState([])
   const [sortedTodos, setSortedTodos] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("http://localhost:3005/todoos")
       .then((loadedData) => loadedData.json())
       .then((loadedTodos) => {
         setTodos(loadedTodos)
         setSortedTodos(loadedTodos)
       })
-  }, [refreshProducts])
+      .finally(() => {
+        setTimeout(() => {
+          setIsLoading(false)
 
-  return { todos, sortedTodos, setSortedTodos }
+        }, 1000)
+      })
+  }, [])
+
+  return { todos, isLoading, sortedTodos, setSortedTodos }
 }

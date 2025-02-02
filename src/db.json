@@ -1,31 +1,23 @@
 {
   "todoos": [
     {
-      "title": "wewefs",
+      "title": "Купить продукты",
       "id": 3
     },
     {
-      "title": "АААААААААААААААААААААААААААААААААА",
+      "title": "Закончить отчет",
       "id": 5
     },
     {
-      "title": "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
+      "title": "Позвонить клиенту",
       "id": 7
     },
     {
-      "title": "aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-      "id": 8
-    },
-    {
-      "title": "sdfsdfsfs",
+      "title": "Убраться в квартире",
       "id": 9
     },
     {
-      "title": "asss",
-      "id": 10
-    },
-    {
-      "title": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "title": "Написать другу",
       "id": 11
     }
   ]
