@@ -1,17 +1,14 @@
-import useAlfabetSortTodos from "../../../hooks/useAlfabetSortTodos"
 import PropTypes from "prop-types"
 
-export const AlfabetSortTodos = ({ setIsFiltered }) => {
-  const { alfabetSortTodos, alfabetTodosUpdated } = useAlfabetSortTodos()
-
+export const AlfabetSortTodos = () => {
+  const alfabetTodosUpdated = true;
   return (
     <div>
-      <button onClick={alfabetSortTodos}>
+      <button>
         {alfabetTodosUpdated
           ? "Изначальная сортировка"
           : "Отсортировать задачи по алфавиту"}
       </button>
-      <button onClick={() => setIsFiltered(true)}>Найти задачу</button>
     </div>
   )
 }

@@ -1,12 +1,11 @@
+import React from "react"
 import TodoItem from "../TodoItem"
-import { useRequestGetTodos } from "../../hooks"
-import "./styles.css"
 import Loader from "../Loader"
 
-const TodoList = (refreshTodos) => {
-  const { todos, isLoading, sortedTodos } = useRequestGetTodos(refreshTodos)
+import "./styles.css"
 
-  if (isLoading) {
+const TodoList = ({ todos, isLoading }) => {
+  if (isLoading) { 
     return <Loader />
   }
 
@@ -16,7 +15,7 @@ const TodoList = (refreshTodos) => {
 
   return (
     <div className="list">
-      {sortedTodos.map((todo) => (
+      {todos.map((todo) => (
         <TodoItem key={todo.id} todo={todo} />
       ))}
     </div>

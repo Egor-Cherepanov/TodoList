@@ -2,15 +2,14 @@ import { useState } from "react"
 import useAddTodo from "../../hooks/useAddTodo"
 import styles from "./add-todo.module.css"
 
-const AddTodoBlock = ({ updateTodos }) => {
+const AddTodoBlock = () => {
   const [inputValue, setInputValue] = useState("")
 
   const addTodo = useAddTodo() // Используем хук
 
-  const handleAddTodo = () => {
-    addTodo(inputValue) // Передаём inputValue в функцию addTodo
+  const handleAddTodo = async () => {
+    await addTodo(inputValue) // Передаём inputValue в функцию addTodo
     setInputValue("") // Очищаем поле ввода
-    updateTodos()
   }
 
   return (

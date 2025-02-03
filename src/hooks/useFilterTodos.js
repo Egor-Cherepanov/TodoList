@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useRequestGetTodos } from "./useGetTodos"
+// import { useRequestGetTodos } from "./useGetTodos"
 
 const debounce = (callBack, delay = 1000) => {
   let timeout
@@ -13,16 +13,16 @@ const debounce = (callBack, delay = 1000) => {
 
 export const useFilterTodos = () => {
   const [filteredInput, setFilteredInput] = useState("")
-  const { todos, setSortedTodos } = useRequestGetTodos()
+  // const { todos, setSortedTodos } = useRequestGetTodos()
 
   const filterTodos = ({ value }) => {
     setFilteredInput(value)
 
-    const debouncedSetSortedTodos = debounce((value) => {
-      const filterSortedTodos = todos.filter((todo) => {
-        return todo.title.toLowerCase().includes(value.toLowerCase())
-      })
-      setSortedTodos(filterSortedTodos)
+    const debouncedSetSortedTodos = debounce(() => {
+      // const filterSortedTodos = todos.filter((todo) => {
+      //   return todo.title.toLowerCase().includes(value.toLowerCase())
+      // })
+      // setSortedTodos(filterSortedTodos)
     })
 
     debouncedSetSortedTodos(value)

@@ -1,6 +1,6 @@
 const useAddTodo = () => {
   const requestAddTodo = (inputValue) => {
-    fetch("http://localhost:3005/todoos", {
+    return fetch("http://localhost:3005/todoos", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({

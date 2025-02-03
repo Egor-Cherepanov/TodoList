@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { useRequestGetTodos } from "./useGetTodos"
+import { useGetTodos } from "./useGetTodos"
 
 const useAlfabetSortTodos = () => {
   const [alfabetTodosUpdated, setAlfabetTodosUpdated] = useState(false)
-  const { todos, setSortedTodos, sortedTodos } = useRequestGetTodos()
+  const { todos, setSortedTodos, sortedTodos } = useGetTodos()
 
   const alfabetSortTodos = () => {
     if (alfabetTodosUpdated) {
