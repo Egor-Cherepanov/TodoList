@@ -12,7 +12,7 @@ body {
 
 /* Контейнер для приложения */
 .todoApp {
-  width: 800px;
+  max-width: 600px;
   margin: 50px auto;
   padding: 20px;
   background: white;
@@ -24,7 +24,6 @@ body {
 h1 {
   text-align: center;
   color: #333;
-  margin-top: 15px;
 }
 
 /* Стили для формы добавления задачи */
@@ -40,28 +39,6 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
-}
-
-.todooOptions {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.optionsButton {
-  padding: 10px 15px;
-  /* font-size: 14px; */
-  color: white;
-  background-color: #007bff; /* Основной цвет кнопки */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 5px;
-  transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
-}
-
-.optionsButton:hover {
-  background-color: #0056b3; /* Изменение цвета кнопки при наведении */
 }
 
 .loader {
@@ -93,20 +70,11 @@ h1 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 5px;
   transition: background-color 0.3s ease;
-}
-
-.inputError {
-  color: red;
 }
 
 .addButton:hover {
   background-color: #218838;
-}
-
-.addButton:disabled {
-  background-color: gray;
 }
 
 /* Стили для списка задач */
@@ -117,10 +85,6 @@ h1 {
 
 .todoItem {
   display: flex;
-  max-width: 800px; /* Максимальная ширина элемента li */
-  white-space: nowrap; /* Запрещаем перенос текста на новую строку */
-  overflow: hidden; /* Скрываем текст, который выходит за пределы */
-  text-overflow: ellipsis; /* Добавляем троеточие в конце */
   justify-content: space-between;
   align-items: center;
   padding: 10px;
@@ -134,28 +98,6 @@ h1 {
 .todoText {
   flex: 1;
   font-size: 18px;
-  white-space: nowrap; /* Запрещаем перенос текста на новую строку */
-  overflow: hidden; /* Скрываем текст, который выходит за пределы */
-  text-overflow: ellipsis; /* Добавляем троеточие в конце */
-  color: #444;
-}
-
-.todoText a {
-  color: #444;
-}
-
-.updateButton {
-  background-color: #ffa500;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  margin-left: 5px;
-  cursor: pointer;
-  padding: 5px 10px;
-}
-
-.updateButton:hover {
-  background-color: #e67e22;
 }
 
 /* Кнопка удаления задачи */
@@ -164,7 +106,6 @@ h1 {
   color: white;
   border: none;
   border-radius: 4px;
-  margin-left: 5px;
   cursor: pointer;
   padding: 5px 10px;
 }
