@@ -4,7 +4,7 @@ import "./styles.css"
 import Loader from "../Loader"
 
 const TodoList = (refreshTodos) => {
-  const { todos, isLoading } = useRequestGetTodos(refreshTodos)
+  const { todos, isLoading, sortedTodos } = useRequestGetTodos(refreshTodos)
 
   if (isLoading) {
     return <Loader />
@@ -16,7 +16,7 @@ const TodoList = (refreshTodos) => {
 
   return (
     <div className="list">
-      {todos.map((todo) => (
+      {sortedTodos.map((todo) => (
         <TodoItem key={todo.id} todo={todo} />
       ))}
     </div>

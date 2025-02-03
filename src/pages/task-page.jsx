@@ -4,12 +4,16 @@ import TodoItem from "../components/TodoItem"
 import useGetTodoById from "../hooks/useGetTodoById"
 import Loader from "../components/Loader"
 import RemoveTodo from "../components/RemoveTodo"
+import { StartUpdateTodo } from "../components/StartUpdateTodo"
+import { useState } from "react"
 
 export const TaskPage = () => {
   const navigate = useNavigate()
 
   const { id } = useParams()
   const { todo, isLoading } = useGetTodoById(id)
+  const [isUpdating, setIsUpdating] = useState(false)
+  console.log(todo)
 
   if (isLoading) {
     return <Loader />
@@ -19,20 +23,10 @@ export const TaskPage = () => {
     <div className={styles.taskPage}>
       <button onClick={() => navigate(-1)}>❮ Назад</button>
 
-      {todo && <TodoItem todo={todo} />}
+      {isUpdating ? <UpdateTodo /> : <TodoItem todo={todo} />}
 
       <RemoveTodo id={id} />
-
-      {/* {isUpdating ? <UpdateTodo id={id} /> : <></>} */}
-
-      {/* <button
-        onClick={startUpdateTodo}
-        data-id={todo.id}
-        className={styles.updateButton}
-        data-text={todo.title}
-      >
-        Редактировать задачу
-      </button> */}
+      <StartUpdateTodo setIsUpdating={setIsUpdating} />
     </div>
   )
 }
