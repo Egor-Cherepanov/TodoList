@@ -1,0 +1,24 @@
+.sortContainer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sortBtn {
+  padding: 10px 15px;
+  color: white;
+  text-align: center; /* Центрирует все строчные элементы внутри */
+  display: inline-block;
+  background-color: #007bff; /* Основной цвет кнопки */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.sortBtn:hover {
+  background-color: #0056b3; /* Изменение цвета кнопки при наведении */
+}
+button {
+  display: inline-block; /* Делаем кнопку строчно-блочной */
+}

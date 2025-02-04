@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
-const useGetTodoById = (id: string) => {
-  const [todo, setTodo] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+export const useGetTodoById = (id) => {
+  const [todo, setTodo] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     setIsLoading(true)
@@ -16,9 +16,7 @@ const useGetTodoById = (id: string) => {
           setIsLoading(false)
         }, 300)
       })
-  }, [id]);
+  }, [id])
 
-  return { todo, isLoading };
+  return { todo, isLoading }
 }
-
-export default useGetTodoById;

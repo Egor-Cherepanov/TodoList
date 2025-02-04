@@ -1,30 +1,39 @@
 import TodoList from "../components/TodoList"
-import AddTodoBlock from "../components/AddTodoBlock/add-todo-block"
-import { FilterTodos } from "../components/FilterAndSort/FilterTodos/FilterTodos"
+import AddTodoBlock from "../components/AddTodoBlock/AddTodo"
+import { FilterTodos } from "../components/FilterTodos/FilterTodos"
 import { useGetTodos } from "../hooks/useGetTodos"
-import SortButton from "../components/SortButton"
+import { SortButton } from "../components/SortButton"
 
 import styles from "./App.module.css"
 
 export const HomePage = () => {
-  const { todos, isLoading, setSort, setSearch } = useGetTodos();
+  const { todos, isLoading, sort, setSort, setSearch, setAdd, add } =
+    useGetTodos()
 
   const handleOnSortClick = () => {
-    setSort({ key: 'title' });
+    if (sort) {
+      setSort(null)
+    } else {
+      setSort({ key: "title" })
+    }
   }
 
   const handleOnSearch = (value) => {
-    setSearch(value);
+    setSearch(value)
+  }
+
+  const handleOnAddClick = () => {
+    setAdd(!add)
   }
 
   return (
     <div className={styles.todoApp}>
       <h1>Список дел</h1>
-      <AddTodoBlock />
-      <SortButton onClick={handleOnSortClick} />
-      <FilterTodos onChange={handleOnSearch} />
+      <AddTodoBlock handleOnAddClick={handleOnAddClick} />
+      <SortButton handleOnSortClick={handleOnSortClick} sort={sort} />
+      <FilterTodos handleOnSearch={handleOnSearch} />
 
-      <TodoList todos={todos} isLoading={isLoading}  />
+      <TodoList todos={todos} isLoading={isLoading} />
     </div>
   )
 }

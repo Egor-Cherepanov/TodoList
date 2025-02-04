@@ -1,23 +1,16 @@
-import { useState } from "react"
+// import { useState } from "react"
 
 export const useRequestUpdateTodo = ({
   inputValue,
-  setInputValue,
+  goBackToMainPage,
+  id,
   setInputError,
-  actualId,
-  setActualId,
-  setRefreshProducts,
-  refreshProducts,
-  setAlfabetTodosUpdated,
 }) => {
-  const [isUpdating, setIsUpdating] = useState(false)
-
   const requestUpdateTodo = () => {
     if (inputValue === "") {
-      return setInputError("Введите текст задачи")
+      return setInputError("Новая задача не должна быть пустой")
     }
-
-    fetch(`http://localhost:3005/todoos/${actualId}`, {
+    fetch(`http://localhost:3005/todoos/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -27,15 +20,11 @@ export const useRequestUpdateTodo = ({
       .then((rawResponse) => rawResponse.json())
       .then((response) => {
         console.log("Задача обновлена, ответ сервера:", response)
-        setRefreshProducts(!refreshProducts)
       })
       .finally(() => {
-        setIsUpdating(false)
-        setInputValue("")
-        setActualId(0)
-        setAlfabetTodosUpdated(false)
+        goBackToMainPage()
       })
   }
 
-  return { isUpdating, setIsUpdating, requestUpdateTodo }
+  return { requestUpdateTodo }
 }

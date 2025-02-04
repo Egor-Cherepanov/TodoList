@@ -1,15 +1,17 @@
 import { useState } from "react"
 import useAddTodo from "../../hooks/useAddTodo"
+import PropTypes from "prop-types"
 import styles from "./add-todo.module.css"
 
-const AddTodoBlock = () => {
+const AddTodoBlock = ({ handleOnAddClick }) => {
   const [inputValue, setInputValue] = useState("")
 
-  const addTodo = useAddTodo() // Используем хук
+  const addTodo = useAddTodo()
 
-  const handleAddTodo = async () => {
-    await addTodo(inputValue) // Передаём inputValue в функцию addTodo
-    setInputValue("") // Очищаем поле ввода
+  const handleAddTodo = () => {
+    addTodo(inputValue)
+    setInputValue("")
+    handleOnAddClick()
   }
 
   return (
@@ -30,6 +32,10 @@ const AddTodoBlock = () => {
       </button>
     </div>
   )
+}
+
+AddTodoBlock.propTypes = {
+  handleOnAddClick: PropTypes.func.isRequired,
 }
 
 export default AddTodoBlock
