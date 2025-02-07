@@ -13,12 +13,29 @@
 .todoText {
   flex: 1;
   font-size: 18px;
-  white-space: nowrap; /* Запрещаем перенос текста на новую строку */
-  overflow: hidden; /* Скрываем текст, который выходит за пределы */
-  text-overflow: ellipsis; /* Добавляем троеточие в конце */
+  white-space: normal; /* Разрешает перенос строк */
+  word-wrap: break-word; /* Переносит длинные слова */
+  display: block; /* Чтобы span занимал всю ширину родителя */
+
   color: #444;
 }
 
 .todoText a {
   color: #444;
+}
+
+.updateButton {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  height: 40px; /* Фиксированная высота, как у input */
+  width: 40px;
+}
+
+.updateButton:hover {
+  background-color: #e67e22;
 }

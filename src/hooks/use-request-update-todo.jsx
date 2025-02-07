@@ -2,9 +2,10 @@
 
 export const useRequestUpdateTodo = ({
   inputValue,
-  goBackToMainPage,
   id,
   setInputError,
+  handleOnAddClick,
+  setIsUpdating,
 }) => {
   const requestUpdateTodo = () => {
     if (inputValue === "") {
@@ -22,7 +23,8 @@ export const useRequestUpdateTodo = ({
         console.log("Задача обновлена, ответ сервера:", response)
       })
       .finally(() => {
-        goBackToMainPage()
+        handleOnAddClick()
+        setIsUpdating(false)
       })
   }
 

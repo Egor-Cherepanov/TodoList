@@ -3,6 +3,7 @@ import AddTodoBlock from "../components/AddTodoBlock/AddTodo"
 import { FilterTodos } from "../components/FilterTodos/FilterTodos"
 import { useGetTodos } from "../hooks/useGetTodos"
 import { SortButton } from "../components/SortButton"
+import { TodosContext } from "../context"
 
 import styles from "./App.module.css"
 
@@ -33,7 +34,13 @@ export const HomePage = () => {
       <SortButton handleOnSortClick={handleOnSortClick} sort={sort} />
       <FilterTodos handleOnSearch={handleOnSearch} />
 
-      <TodoList todos={todos} isLoading={isLoading} />
+      <TodosContext.Provider value={{ todos, isLoading, handleOnAddClick }}>
+        <TodoList
+        // todos={todos}
+        // isLoading={isLoading}
+        // handleOnAddClick={handleOnAddClick}
+        />
+      </TodosContext.Provider>
     </div>
   )
 }

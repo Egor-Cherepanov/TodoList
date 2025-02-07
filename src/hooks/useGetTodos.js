@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function searchString(search, sort, add) {
+function searchString(search, sort) {
   const params = new URLSearchParams()
 
   if (search) {
