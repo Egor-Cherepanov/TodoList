@@ -10,7 +10,7 @@ import "./styles.css"
 // const TodoList = ({ todos, isLoading, handleOnAddClick }) => {
 const TodoList = () => {
   const { todos, isLoading } = useContext(TodosContext)
-  console.log(todos)
+
   if (isLoading) {
     return <Loader />
   }
