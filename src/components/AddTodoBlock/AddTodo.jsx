@@ -1,17 +1,15 @@
 import { useState } from "react"
-import useAddTodo from "../../hooks/useAddTodo"
-import PropTypes from "prop-types"
+import { useDispatch } from "react-redux"
+import { addTodos } from "../../actions"
 import styles from "./add-todo.module.css"
 
-const AddTodoBlock = ({ handleOnAddClick }) => {
+const AddTodoBlock = () => {
   const [inputValue, setInputValue] = useState("")
-
-  const addTodo = useAddTodo()
+  const dispatch = useDispatch()
 
   const handleAddTodo = () => {
-    addTodo(inputValue)
+    dispatch(addTodos(inputValue))
     setInputValue("")
-    handleOnAddClick()
   }
 
   return (
@@ -32,10 +30,6 @@ const AddTodoBlock = ({ handleOnAddClick }) => {
       </button>
     </div>
   )
-}
-
-AddTodoBlock.propTypes = {
-  handleOnAddClick: PropTypes.func.isRequired,
 }
 
 export default AddTodoBlock
